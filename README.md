@@ -18,3 +18,5 @@
 
 - Course Summary Text Area
 - Input File Image CSS Design for Modern
+
+![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/33d529c572cc7bc488b742d055e1e0e8d61ef9d0/Screenshot-111.png)
