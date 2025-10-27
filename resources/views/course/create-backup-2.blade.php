@@ -46,10 +46,7 @@
                                 <div class="form-group">
                                     <label for="">Category<code>*</code></label>
                                     <select name="" id="" class="form-control">
-                                        <option selected disabled>Choose</option>
-                                        <option value="html">HTML</option>
-                                        <option value="css">CSS</option>
-                                        <option value="js">JS</option>
+                                        <option value="" selected disabled>Choose</option>
                                     </select>
                                 </div>
                             </div>
@@ -99,95 +96,35 @@
         $(document).ready(function() {
             let moduleCount = 0;
 
-            // Add new module
+            // Add module dynamically
             $('#addModuleBtn').on('click', function() {
                 moduleCount++;
                 const moduleHtml = `
             <div class="card mt-3 module-item" id="module_${moduleCount}">
                 <div class="card-header bg-light d-flex justify-content-between align-items-center">
                     <h6 class="mb-0">Module ${moduleCount}</h6>
-                    <div>
-                        <button type="button" class="btn btn-success btn-sm add-content" data-module="${moduleCount}">
-                            <i class="bi bi-plus-circle"></i> Add Content
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm remove-module" data-id="${moduleCount}">
-                            <i class="bi bi-trash"></i> Remove
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-danger btn-sm remove-module" data-id="${moduleCount}">
+                        <i class="bi bi-trash"></i> x
+                    </button>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
                         <label class="form-label">Module Title</label>
                         <input type="text" name="modules[${moduleCount}][title]" class="form-control" >
                     </div>
-
-                    <!-- Content List -->
-                    <div id="contentList_${moduleCount}"></div>
                 </div>
             </div>
         `;
                 $('#modulesList').append(moduleHtml);
             });
 
-            // Remove a module
+            // Remove module
             $(document).on('click', '.remove-module', function() {
                 const id = $(this).data('id');
                 $('#module_' + id).remove();
             });
-
-            // Add content inside a specific module
-            $(document).on('click', '.add-content', function() {
-                const moduleId = $(this).data('module');
-                const contentList = $(`#contentList_${moduleId}`);
-                const contentCount = contentList.children('.content-item').length + 1;
-
-                const contentHtml = `
-            <div class="border p-3 rounded mb-2 content-item" id="content_${moduleId}_${contentCount}">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <strong>Content ${contentCount}</strong>
-                    <button type="button" class="btn btn-outline-danger btn-sm remove-content" data-module="${moduleId}" data-content="${contentCount}">
-                        Remove
-                    </button>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mb-2">
-                        <label class="form-label">Content Title</label>
-                        <input type="text" name="modules[${moduleId}][contents][${contentCount}][title]" class="form-control" >
-                    </div>
-
-                    <div class="col-md-3 mb-2">
-                        <label class="form-label">Video Source Type</label>
-                        <select name="modules[${moduleId}][contents][${contentCount}][source_type]" class="form-select" >
-                        
-                            <option value="youtube">YouTube</option>
-                            <option value="vimeo">Vimeo</option>
-                            <option value="mp4">MP4 Upload</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-3 mb-2">
-                        <label class="form-label">Video URL</label>
-                        <input type="text" name="modules[${moduleId}][contents][${contentCount}][video_url]" class="form-control" >
-                    </div>
-
-                    <div class="col-md-2 mb-2">
-                        <label class="form-label">Length (min)</label>
-                        <input type="text" name="modules[${moduleId}][contents][${contentCount}][video_length]" class="form-control" placeholder="00:00" >
-                    </div>
-                </div>
-            </div>
-        `;
-
-                contentList.append(contentHtml);
-            });
-
-            // Remove a specific content
-            $(document).on('click', '.remove-content', function() {
-                const moduleId = $(this).data('module');
-                const contentId = $(this).data('content');
-                $(`#content_${moduleId}_${contentId}`).remove();
-            });
         });
     </script>
+
 
     @endsection
