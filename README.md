@@ -46,6 +46,8 @@
 - php artisan make:model Module -m
 - php artisan make:model Content -m
 
+![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/cf994c545e817f74e520284accb6e8d15115eda5/Screenshot-119.png)
+
 
 
 
