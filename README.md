@@ -54,6 +54,12 @@
 
 ![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/fda2acc5ab6dc2f33a31e964966cde2e75a87136/Screenshot-122.png)
 
+## Data Insert with Controller
 
+- php artisan make:controller CourseController
+- dd testing data insert
+- validation testing
+- toastr cdn 
+- bugs issues jquery vresion mismatch solve
 
 

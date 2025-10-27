@@ -3,6 +3,7 @@
 @section('content')
 
 
+
 <div class="content" id="content">
     <nav class="navbar navbar-light bg-white shadow-sm mb-4">
         <div class="container-fluid">
@@ -22,73 +23,108 @@
                     <div class="card-header bg-primary text-white">
                         Create a Course
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="">Course Title<code>*</code></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="">Feature Video<code>*</code></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="">Level<code>*</code></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="">Category<code>*</code></label>
-                                    <select name="" id="" class="form-control">
-                                        <option selected disabled>Choose</option>
-                                        <option value="html">HTML</option>
-                                        <option value="css">CSS</option>
-                                        <option value="js">JS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="">Course Price<code>*</code></label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-12 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="course_area">Course Summary <code>*</code></label>
-                                    <textarea class="form-control summernote"></textarea>
 
+                    <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="">Course Title<code>*</code></label>
+                                        <input type="text" name="title" class="form-control">
+
+                                        @error('title')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="">Feature Video<code>*</code></label>
+                                        <input type="text" name="feature_video" class="form-control">
 
-                            <div class="col-md-12 mt-2 mb-2">
-                                <div class="form-group">
-                                    <label for="course_area">Feature Image <code>*</code></label>
-                                    <input type="file" class="form-control">
-
+                                        @error('feature_video')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-4 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="">Level<code>*</code></label>
+                                        <input type="text" name="level" class="form-control">
 
-                            <div class="col-md-12 mt-2 mb-2">
-                                <button type="button" id="addModuleBtn" class="btn btn-primary btn-sm">
-                                    Add Module <i class="fa fa-plus-circle"></i>
-                                </button>
-                            </div>
-
-                            <div class="col-md-12 mt-2 mb-2">
-                                <div id="modulesList">
-                                    <!-- Dynamic modules will appear here -->
+                                        @error('level')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-4 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="">Category<code>*</code></label>
+                                        <select name="category" id="" class="form-control">
+                                            <option selected disabled>Choose</option>
+                                            <option value="html">HTML</option>
+                                            <option value="css">CSS</option>
+                                            <option value="js">JS</option>
+                                        </select>
 
+                                        @error('category')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="">Course Price<code>*</code></label>
+                                        <input type="text" name="price" class="form-control">
+
+                                        @error('price')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="course_area">Course Summary <code>*</code></label>
+                                        <textarea name="summary" class="form-control summernote"></textarea>
+
+                                        @error('summary')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2 mb-2">
+                                    <div class="form-group">
+                                        <label for="course_area">Feature Image <code>*</code></label>
+                                        <input type="file" name="feature_image" class="form-control">
+
+                                        @error('feature_image')
+                                        <span class="text-danger small">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2 mb-2">
+                                    <button type="button" id="addModuleBtn" class="btn btn-primary btn-sm">
+                                        Add Module <i class="fa fa-plus-circle"></i>
+                                    </button>
+                                </div>
+
+                                <div class="col-md-12 mt-2 mb-2">
+                                    <div id="modulesList">
+                                        <!-- Dynamic modules will appear here -->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mt-2 mb-2">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -189,5 +225,8 @@
             });
         });
     </script>
+
+
+
 
     @endsection
