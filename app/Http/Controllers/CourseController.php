@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\Course;
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -44,6 +46,15 @@ class CourseController extends Controller
             'summary' => $request->input('summary'),
             'feature_image' => $featureImage,
         ]);
+
+        if ($request->modules) {
+            foreach ($request->modules as $moduleData) {
+                $module = Module::create([
+                    'course_id' => $course->id,
+                    'title' => $moduleData['title'] ?? 'Untitled Module',
+                ]);
+            }
+        }
 
         return redirect()->back()->with('success', 'Course created successfully!');
     }
