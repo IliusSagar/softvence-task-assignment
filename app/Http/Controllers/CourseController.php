@@ -16,22 +16,27 @@ class CourseController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            // 'feature_video' => 'required|string',
-            // 'level' => 'required|string',
-            // 'category' => 'required|string',
-            // 'price' => 'required|numeric',
-            // 'summary' => 'required|string',
-            // 'feature_image' => 'required|file|mimes:jpg,jpeg,png'
+            'feature_video' => 'required|string',
+            'level' => 'required|string',
+            'category' => 'required|string',
+            'price' => 'required|numeric',
+            'summary' => 'required|string',
+            'feature_image' => 'nullable|file|mimes:jpg,jpeg,png'
         ]);
+
+        $featureImage = null;
+        if ($request->hasFile('feature_image')) {
+            $featureImage = $request->file('feature_image')->store('courses', 'public');
+        }
 
         $course = Course::create([
             'title' => $request->input('title'),
-            // 'feature_video' => $request->input('feature_video'),
-            // 'level' => $request->input('level'),
-            // 'category' => $request->input('category'),
-            // 'price' => $request->input('price'),
-            // 'summary' => $request->input('summary'),
-            // 'feature_image' => $featureImage,
+            'feature_video' => $request->input('feature_video'),
+            'level' => $request->input('level'),
+            'category' => $request->input('category'),
+            'price' => $request->input('price'),
+            'summary' => $request->input('summary'),
+            'feature_image' => $featureImage,
         ]);
 
         return redirect()->back()->with('success', 'Course created successfully!');
