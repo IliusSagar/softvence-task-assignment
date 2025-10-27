@@ -61,5 +61,7 @@
 - validation testing
 - toastr cdn 
 - bugs issues jquery vresion mismatch solve
+- php artisan storage:link
+- Feature Video File Insert with storage link
 
 

@@ -41,7 +41,7 @@
                                 <div class="col-md-6 mt-2 mb-2">
                                     <div class="form-group">
                                         <label for="">Feature Video<code>*</code></label>
-                                        <input type="text" name="feature_video" class="form-control">
+                                        <input type="file" name="feature_video" class="form-control" accept="video/*">
 
                                         @error('feature_video')
                                         <span class="text-danger small">{{ $message }}</span>
