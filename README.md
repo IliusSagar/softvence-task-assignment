@@ -19,9 +19,10 @@
 - Course Summary Text Area
 - Input File Image CSS Design for Modern
 
-<<<<<<< HEAD
+![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/33d529c572cc7bc488b742d055e1e0e8d61ef9d0/Screenshot-111.png)
+
 ## Add Module with Click document ready function
 
-=======
-![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/33d529c572cc7bc488b742d055e1e0e8d61ef9d0/Screenshot-111.png)
->>>>>>> 01c5dafa8f38d0ddf512eb9a2f0552261ca8b1bd
+
+
+
