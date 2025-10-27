@@ -39,4 +39,13 @@
 
 ![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/c0d94e4d286b6082aa095cf3c92fe164b1f212ee/Screenshot-118.png)
 
+## Database Schema
+
+- 3 tables migratation need courses, modules & contents
+- php artisan make:model Course -m
+- php artisan make:model Module -m
+- php artisan make:model Content -m
+
+
+
 
