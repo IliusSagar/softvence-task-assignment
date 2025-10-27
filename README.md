@@ -18,3 +18,6 @@
 
 - Course Summary Text Area
 - Input File Image CSS Design for Modern
+
+## Add Module with Click document ready function
+
