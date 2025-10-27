@@ -29,4 +29,8 @@
 
 ![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/2373aab21f3d2e745d41c91aca5a2396f93e6941/Screenshot-114.png)
 
+## Module Under Content Input Click Document JS Function
+
+![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/3085ba95e3eb57e9175b87fe26efffc85ef8bd68/Screenshot-115.png)
+
 
