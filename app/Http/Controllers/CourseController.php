@@ -6,6 +6,7 @@ use App\Models\Content;
 use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCourseRequest;
 
 class CourseController extends Controller
 {
@@ -14,17 +15,9 @@ class CourseController extends Controller
         return view('course.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCourseRequest  $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'feature_video' => 'nullable|mimetypes:video/mp4,video/avi,video/mpeg|max:20480',
-            'level' => 'required|string',
-            'category' => 'required|string',
-            'price' => 'required|numeric',
-            'summary' => 'required|string',
-            'feature_image' => 'nullable|file|mimes:jpg,jpeg,png',
-        ]);
+        $validated = $request->validated();
 
         $featureImage = null;
         if ($request->hasFile('feature_image')) {
