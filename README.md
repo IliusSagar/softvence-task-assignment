@@ -82,5 +82,8 @@
 
 ![image alt](https://github.com/IliusSagar/softvence-task-assignment/blob/b9c66fd44a72da38d3542df69499c8f51d4e1379/Screenshot-129.png)
 
+## Traits Handle Media reusable
+
+
 
 

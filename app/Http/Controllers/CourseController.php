@@ -7,9 +7,12 @@ use App\Models\Course;
 use App\Models\Module;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCourseRequest;
+use App\Traits\HandlesMediaUploads;
 
 class CourseController extends Controller
 {
+    use HandlesMediaUploads;
+
     public function create()
     {
         return view('course.create');
@@ -19,15 +22,9 @@ class CourseController extends Controller
     {
         $validated = $request->validated();
 
-        $featureImage = null;
-        if ($request->hasFile('feature_image')) {
-            $featureImage = $request->file('feature_image')->store('courses', 'public');
-        }
-
-        $featureVideo = null;
-        if ($request->hasFile('feature_video')) {
-            $featureVideo = $request->file('feature_video')->store('videos', 'public');
-        }
+        // ✅ Use Trait functions
+        $featureImage = $this->uploadImage($request, 'feature_image');
+        $featureVideo = $this->uploadVideo($request, 'feature_video');
 
 
         $course = Course::create([
